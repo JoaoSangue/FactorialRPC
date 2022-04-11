@@ -30,6 +30,7 @@ func serveConnection(conn net.Conn) {
 }
 
 func main() {
+	// Make the type Factorial available to all rpc clients
 	rpc.Register(new(Factorial))
 	rpc.HandleHTTP()
 
