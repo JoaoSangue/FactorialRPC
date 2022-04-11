@@ -1,3 +1,6 @@
+//
+// Use `go run client.go` to start application
+//
 package main
 
 import (
@@ -7,6 +10,7 @@ import (
 )
 
 func main() {
+	// Connect to server at "localhost:8080" using TCP
 	client, err := rpc.Dial("tcp", "localhost:8080")
 	if err != nil {
 		log.Fatal("Failed to dial: ", err)
@@ -16,6 +20,7 @@ func main() {
 	fmt.Println("Enter a number: ")
 	fmt.Scanf("%d", &value)
 
+	// Ask server to execute "Factorial.Calculate(value, &result)"
 	err = client.Call("Factorial.Calculate", value, &result)
 	if err != nil {
 		log.Fatal(fmt.Sprintf("Couldn't calculate factorial of %d. ", value), err)
