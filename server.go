@@ -1,3 +1,6 @@
+//
+// Use `go run server.go` to start application
+//
 package main
 
 import (
